@@ -7,7 +7,7 @@ import java.util.*;
 public class WordCounter {
 
     public static void main(String[] args) {
-        String file = "/Users/julianaangelvalencia/Desktop/WordCounter/src/main/resources/file/words_file";
+        String file = "../resources/file/words_file";
 
         try {
             Map<String, Integer> frequencyWords = new HashMap<>();
@@ -17,9 +17,9 @@ public class WordCounter {
             BufferedReader reader = new BufferedReader(new FileReader(file));
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] words = line.split("\\s+"); // Divide la línea en palabras
+                String[] words = line.split("\\s+");
                 for (String word : words) {
-                    word = word.toLowerCase(); // Convierte a minúsculas para evitar duplicados
+                    word = word.toLowerCase();
                     frequencyWords.put(word, frequencyWords.getOrDefault(word, 0) + 1);
                     totalWords++;
                     totalCharacters += word.length() + 1;
@@ -40,7 +40,7 @@ public class WordCounter {
             }
 
         } catch (IOException e) {
-            System.err.println("Error al leer el archivo: " + e.getMessage());
+            System.err.println("Error when reading file: " + e.getMessage());
         }
     }
 }
